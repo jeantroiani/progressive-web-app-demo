@@ -2,3 +2,20 @@
     text-align: center;
     padding: 10px;
 }
+.mdl-card {
+    cursor: pointer;
+    color: #fff;
+    height: 250px;
+    background-size: cover;
+}
+
+.mdl-card__title-text {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
