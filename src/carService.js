@@ -1,4 +1,5 @@
 import 'whatwg-fetch';
+import { appendCars } from './template';
 
 const apiUrlPath = 'https://bstavroulakis.com/pluralsight/courses/progressive-web-apps/service/';
 const apiUrlLatest = apiUrlPath + 'latest-deals.php';
@@ -9,6 +10,6 @@ export function loadMoreRequest() {
         return response.json(); 
     })
     .then(data => {
-        console.log(data);
+        appendCars(data.cars);
     });
 }

@@ -24,6 +24,9 @@
                 <div>
             </header>
             <main class="mdl-layout__content">
+                <div id="first-load" class="centered">
+                    <img src="resources/svg-car.svg" alt="car icon" height="87px" width="100px" />
+                </div>
                 <div class="mdl-grid">
                     <!-- Dynamic content here -->
                 </div>
@@ -34,7 +37,7 @@
                 </div>
             </main>
         </div>
-        <script id="car-card" type="text/template">
+        <script id="car-cards" type="text/template">
             <div class="mdl-card mdl-cell mdl-cell--4-col mdl-shadow--6dp"style="background-image: url('{{image}}')">
                 <div class="mdl-card__title">
                     <span class="mdl-card__title-text">{{title}}(${{price}})</span>
