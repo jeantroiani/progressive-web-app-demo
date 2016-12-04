@@ -12,8 +12,13 @@ export function loadMoreRequest() {
         return response.json(); 
     })
     .then(data => {
-        addCars(data.cars);
-        // appendCars(data.cars);
+        addCars(data.cars)
+        .then((dataFetched) => {
+            appendCars(dataFetched);         
+        });
+    })
+    .catch(err => {
+        console.log(`Error retrieving data: ${err}`);
     });
 }
 
