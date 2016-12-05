@@ -2,7 +2,7 @@ export function appendCars(cars) {
     document.getElementById('first-load').innerHTML = '';
     let cardHTML = "";
     for (let i = 0; i < cars.length; i++) {
-        cardHTML += generateCarCards(cars[i].value);
+        cardHTML += generateCarCards(cars[i]);
     }
     document.querySelector('.mdl-grid').insertAdjacentHTML('beforeend', cardHTML);
 }

@@ -1,10 +1,20 @@
 import 'whatwg-fetch';
 import { appendCars } from './template';
-import { addCars } from './clientStorage';
+import { addCars, getCars } from './clientStorage';
 
 const apiUrlPath = 'https://bstavroulakis.com/pluralsight/courses/progressive-web-apps/service/';
 const apiUrlLatest = apiUrlPath + 'latest-deals.php';
 const apiUrlCar = apiUrlPath + 'car.php?cardId=';
+
+
+function loadMore() {
+    getCars()
+    .then(cars => {
+        Promise.all(cars).then(values => {
+            appendCars(values);            
+        })
+    })
+}
 
 export function loadMoreRequest() {
     fetch(apiUrlLatest)
@@ -14,7 +24,7 @@ export function loadMoreRequest() {
     .then(data => {
         addCars(data.cars)
         .then((dataFetched) => {
-            appendCars(dataFetched);         
+            loadMore();         
         });
     })
     .catch(err => {
