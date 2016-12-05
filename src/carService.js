@@ -1,6 +1,6 @@
 import 'whatwg-fetch';
 import { appendCars } from './template';
-import { addCars, getCars } from './clientStorage';
+import { addCars, getCars, getLastCarId } from './clientStorage';
 
 const apiUrlPath = 'https://bstavroulakis.com/pluralsight/courses/progressive-web-apps/service/';
 const apiUrlLatest = apiUrlPath + 'latest-deals.php';
@@ -17,7 +17,8 @@ function loadMore() {
 }
 
 export function loadMoreRequest() {
-    fetch(apiUrlLatest)
+    console.log(getLastCarId());
+    fetch(apiUrlLatest + "?carId=" + getLastCarId())
     .then(response => {
         return response.json(); 
     })

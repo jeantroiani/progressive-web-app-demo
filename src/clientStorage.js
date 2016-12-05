@@ -51,7 +51,6 @@ async function storeCars(carsKey) {
 
 export async function getCars() {
     let index;
-    let carsStored = [];
     let carsKey = await getKeys();
     index = carsKey.indexOf(lastItemId);
     if (index == -1) {
@@ -62,5 +61,10 @@ export async function getCars() {
     }
     carsKey = carsKey.splice(index - carFetchLimit, carFetchLimit);
     const storedCar = await storeCars(carsKey);
+    lastItemId = carsKey.reverse()[carsKey.length - 1];
     return storedCar;
+}
+
+export function getLastCarId() {
+    return lastItemId;
 }
